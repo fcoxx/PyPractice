@@ -1,17 +1,20 @@
-#!/usr/bin/python
+#!usr/bin/python
 
 from PIL import Image
 from PIL import ImageFont
+from PIL import ImageDraw
 
-im1 = Image.open('pic.jpg')
-im2 = Image.open('pic2.jpg')
-#im3 = Image.blend(im1, im2, 0.5)
-#im3 = Image.composite(im1, im2, 0.5)
-#im3.show()
-#print(im1.getpixel((10, 10)))
-#im1.putpixel((10, 10),(0, 0, 0))
-#im3 = im1.resize((1000, 1000))
-#im3 = im1.rotate(30)
-#im3.save('3.jpg')
-#print(im1.split())
-ImageFont imfont = ImageFont.truetype()
+picPath = 'pic.jpg'     #图片路径
+textString = '50'        #要绘制的字符串
+textSize = 50           #绘制大小
+borderDraw = 10          #绘制字符串的边界
+colorFill = 'Red'
+imFont = ImageFont.truetype(r'c:\windows\fonts\msyh.ttf', textSize)
+
+im = Image.open(picPath)
+
+drawPosition = [im.size[1] - textSize - borderDraw, borderDraw]
+
+draw = ImageDraw.Draw(im)
+draw.text(drawPosition, textString, colorFill, imFont)
+im.show()
