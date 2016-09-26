@@ -17,4 +17,4 @@ drawPosition = [im.size[1] - textSize - borderDraw, borderDraw]
 
 draw = ImageDraw.Draw(im)
 draw.text(drawPosition, textString, colorFill, imFont)
-im.show()
+im.save('picSave.jpg')
