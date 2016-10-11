@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 htmpath = r'F:\素材\1.htm'
 
 class aParser(HTMLParser):
-    tagp = 0
+    taga = 0
     currentlink = ''
     linkname = ''
     
@@ -17,13 +17,13 @@ class aParser(HTMLParser):
     
     def handle_starttag(self, tag, attrs):
         if tag == 'a':
-            self.tagp = 1
+            self.taga = 1
             self.currentlink = self.findhref(attrs)
         else:
-            self.tagp = 0
+            self.taga = 0
             
     def handle_data(self, data):
-        if self.tagp == 1:
+        if self.taga == 1:
             self.linkname = data.strip()
             print(self.linkname + ' : ' + self.currentlink)
 
