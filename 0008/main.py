@@ -26,3 +26,5 @@ htmcontent.close()
 #print(str(len(htmstr)))
 
 parser.feed(htmstr)
+
+parser.close()
